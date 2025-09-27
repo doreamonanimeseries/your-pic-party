@@ -647,13 +647,14 @@
 
             <!-- Birthday message -->
             <div class="hero-message">
-                <h1 class="hero-title">Happy Birthday!</h1>
+                <h1 class="hero-title">Happy Birthday!. saffana! 🎂 </h1>
                 
                 <p class="hero-subtitle">🌟 Another year of amazing adventures awaits! 🌟</p>
                 
                 <div class="hero-buttons">
-                    <button class="btn btn-primary">🎊 Celebrate Together 🎊</button>
-                    <button class="btn btn-outline">💝 Send Wishes 💝</button>
+                    
+                    <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank" class="btn btn-primary">🎊 Celebrate Together 🎊</a>
+                    
                 </div>
             </div>
 
@@ -691,37 +692,24 @@
             <!-- Section header -->
             <div class="wishes-header">
                 <h2 class="wishes-title">Birthday Wishes 💝</h2>
-                <p class="wishes-subtitle">Share your heartfelt wishes and make this birthday even more special!</p>
+                <p class="wishes-subtitle">Wishing you the best year ahead, Saffana 💖!</p>
+                
             </div>
 
             <div class="wishes-grid">
-                <!-- Wish form -->
-                <div class="wish-form-card">
-                    <h3 class="wish-form-title">Send Your Birthday Wish 🌟</h3>
-                    
-                    <form id="wishForm">
-                        <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Your name" id="wishName" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <textarea class="form-textarea" placeholder="Write your birthday message here... ✨" id="wishMessage" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">🎉 Send Birthday Wish 🎉</button>
-                    </form>
-                </div>
+               
 
                 <!-- Sample wishes -->
                 <div class="wishes-list">
-                    <h3 class="wishes-list-title">Wishes from Friends 💫</h3>
+
+                    
                     
                     <div class="wish-card" style="animation-delay: 0s;">
                         <div class="wish-content">
                             <div class="wish-emoji">🌸</div>
                             <div class="wish-text">
-                                <div class="wish-name">Sarah 💕</div>
-                                <p class="wish-message">Hope your special day brings you all the happiness your heart can hold! You deserve all the wonderful things life has to offer. Happy Birthday! 🎂✨</p>
+                                <div class="wish-name"></div>
+                                <p class="wish-message">A birthday is not the end of another year, but the start of a new one filled with hopes and opportunities </p>
                             </div>
                         </div>
                     </div>
@@ -730,8 +718,8 @@
                         <div class="wish-content">
                             <div class="wish-emoji">🎯</div>
                             <div class="wish-text">
-                                <div class="wish-name">Mike 🎸</div>
-                                <p class="wish-message">Another year around the sun! May this new chapter be filled with incredible adventures, laughter, and all your dreams coming true! 🎉🚀</p>
+                                <div class="wish-name"></div>
+                                <p class="wish-message">May your birthday be the beginning of a year filled with good luck, good health, and much happiness.🎉</p>
                             </div>
                         </div>
                     </div>
@@ -740,8 +728,8 @@
                         <div class="wish-content">
                             <div class="wish-emoji">🎭</div>
                             <div class="wish-text">
-                                <div class="wish-name">Emma 🎨</div>
-                                <p class="wish-message">Wishing you a birthday as bright and beautiful as you are! May every moment of your special day be filled with the same joy you bring to others! 🌟💖</p>
+                                <div class="wish-name"></div>
+                                <p class="wish-message">Count your life by smiles, not tears. Count your age by friends, not years. Happy Birthday!</p>
                             </div>
                         </div>
                     </div>
@@ -771,13 +759,14 @@
             
             body.classList.toggle('dark');
             
-            if (body.classList.contains('dark')) {
+            if (body.classList.contains('light')){
+            themeIcon.textContent = '🌙';
+            localStorage.setItem('theme', 'light');}
+            else {
                 themeIcon.textContent = '☀️';
                 localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
-            }
+            } 
+            
         }
 
         // Initialize theme
@@ -842,6 +831,47 @@
                 }
             }
         });
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('theme-icon');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+                themeIcon.textContent = '☀️';
+            } else {
+                themeIcon.textContent = '🌙';
+            }
+        }
+
+        initializeTheme();
+
+        //Confetti generator
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDuration = (2 + Math.random() * 3) + 's';
+                confetti.style.opacity = Math.random();
+                container.appendChild(confetti);
+            }
+        }
+        createConfetti();
+
+        function createConfetti() {
+            const container = document.getElementById("confetti-container");
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDuration = 2 + Math.random() * 3 + "s";
+                confetti.style.opacity = Math.random();
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                container.appendChild(confetti);
+            }
+        }
+        createConfetti();
+
     </script>
 </body>
 </html>
